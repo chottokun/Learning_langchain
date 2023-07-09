@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "l-lancgain"
+version = "0.1.0"
+description = ""
+authors = ["chottokun <29515187+chottokun@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "l_lancgain"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit-chat = "^0.1.1"
+openai = "^0.27.8"
+langchain = "^0.0.228"
+streamlit = "^1.24.1"
+python-dotenv = "^1.0.0"
+duckduckgo-search = "^3.8.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
