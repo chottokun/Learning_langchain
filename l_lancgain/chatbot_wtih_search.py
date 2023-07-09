@@ -41,21 +41,21 @@ tools = [
 ]
 # 
 
-# ChatGPT-3.5のモデルのインスタンスの作成
+# LLM
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-# llm = ChatOpenAI(temperature=0)
 
+# Memory
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
+# session_state
 def get_session_state(memory):
     if "state" not in st.session_state: 
         st.session_state.state = {"memory": memory} 
     return st.session_state.state
-
 state = get_session_state(memory)
+# st.write(state['memory'].load_memory_variables({}))
 
-st.write(state['memory'].load_memory_variables({}))
-
+# Agent
 agent = initialize_agent(
     tools,
     llm,
@@ -68,6 +68,7 @@ agent = initialize_agent(
 # Main
 st.title("Chatbot")
 
+# session_state : messages
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
